@@ -1,0 +1,89 @@
+<div class="header-wrap">
+    <div class="header">
+        <div class="container w--100">
+            <div class="row middle-xs">
+                <div class="col-xs-6 col-md-2 col-xl-3">
+                    <a class="nav-link" routerLink="/homepage/home"
+                        class="header__logo is-inline-block nuxt-link-exact-active nuxt-link-active">
+                        <img src="../../../assets/logo.png" alt="Luxstay"
+                            width="244" height="50">
+                    </a>
+                </div>
+                <div class="col-xs-6 end-xs col-md-10 col-xl-9 menu-wrapper">
+                    <ul class="menu is-flex end-xs middle-xs">
+                        <li class="menu__item is-relative"><a data-action="close-mobile-menu" href="tel:18006586"
+                                class="menu__link">Hotline: <b>18006586</b></a></li>
+                        <li class="menu__item"><a class="nav-link" routerLink="/host" class="menu__link is-become-host"
+                                class="btn btn-outline-warning" style=" font-size: 14px">Trở thành chủ nhà</a></li>
+
+                        <!--  -->
+                        <li *ngIf="!authority" class="menu__item"><a class="nav-link" routerLink="/homepage/auth/signup"
+                                class="menu__link" data-action="close-mobile-menu" rel="nofollow" >Đăng ký</a></li>
+
+                        <li *ngIf="!authority" class="menu__item"><a class="nav-link" routerLink="/homepage/auth/login" 
+                                class="menu__link" data-action="close-mobile-menu" rel="nofollow">Đăng nhập</a></li>
+                        <!--  -->
+                        <li *ngIf="authority === 'user' || authority === 'admin'" class="menu__item is-relative"><a
+                                href="/vi/me/bookings" class="menu__link" data-action="close-mobile-menu"><svg
+                                    version="1.1" viewBox="0 0 20 24" class="svg-icon svg-fill"
+                                    style="width: 30px; height: 20px;">
+                                    <g fill="none">
+                                        <path pid="0" stroke="#222"
+                                            d="M21 2.5H3C1.625 2.5.5 3.678.5 5.143v15.714C.5 22.322 1.625 23.5 3 23.5h18c1.375 0 2.5-1.178 2.5-2.643V5.143C23.5 3.678 22.375 2.5 21 2.5z">
+                                        </path>
+                                        <rect pid="1" width="2" height="5" x="16.5" y=".5" stroke="#222" rx="1"></rect>
+                                        <rect pid="2" width="2" height="5" x="5.5" y=".5" stroke="#222" rx="1"></rect>
+                                        <path pid="3" fill="#222" d="M1 9h22v1H1z"></path>
+                                        <path pid="4" fill="#DEE7EE" d="M2 12h20v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9z">
+                                        </path>
+                                    </g>
+                                </svg> <span>Quản lí giao dịch</span></a></li>
+
+                        <li *ngIf="authority === 'user' || authority === 'admin'"
+                            class="menu__item is-relative mb--12 mb--md--0">
+                            <a class="menu__link menu__link--user btn--dropdown dropdown" data-toggle="dropdown">
+
+                                <!-- <div class="user-avatar"><img src="{{userForService.image}}"></div> -->
+                                <span class="px--6">{{name}}</span> <span class="c-gray-6"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li style="margin-top: -5px; margin-bottom: -5px;"><a class="dropdown-item"
+                                        [routerLink]="['/homepage/me/edit-account']"
+                                        routerLinkActive="router-link-active">
+                                        <span class="user-menu__title ml--12"><i class="fas fa-user-cog"></i> Thông tin tài khoản</span></a>
+                                    </li>
+                                    <hr>
+                                    <li style="margin-top: -5px; margin-bottom: -5px;"><a class="dropdown-item"
+                                        href="#"><span class="user-menu__title ml--12"><i
+                                                class="fas fa-envelope"></i> Tin nhắn</span></a></li>
+                                    <hr>
+                                    <li style="margin-top: -5px; margin-bottom: -5px;"><a class="dropdown-item"
+                                            href="#"><span class="user-menu__title ml--12"><i class="fa fa-heart"
+                                                    aria-hidden="true"></i> Yêu thích</span></a>
+                                    </li>
+                                    <hr>
+                                    <li style="margin-top: -5px"><a class="dropdown-item" href="/homepage/auth/login"
+                                            (click)="logout()"><span class="user-menu__title ml--12"><i
+                                                    class="fas fa-sign-out-alt" style="margin-right: 5px"></i>Đăng
+                                                xuất</span></a></li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+                        <li class="menu__item is-relative">
+                            <div><span data-action="popover"
+                                    class="menu__link btn--dropdown semi-bold is-flex middle-xs is-relative pointer"><img
+                                        src="https://image.winudf.com/v2/image/Y29tLmRhb2hvYW5nc29uLmNoYW9jb3ZpZXRuYW1faWNvbl8wXzY3ODU1YTk0/icon.png?w=170&fakeurl=1"
+                                        width="24" height="24"> <span class="ml--6" style="margin-left: 5px">
+                                        VND</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

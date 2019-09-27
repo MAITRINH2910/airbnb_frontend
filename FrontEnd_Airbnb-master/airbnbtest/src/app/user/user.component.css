@@ -1,0 +1,19 @@
+.col-xs-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+.d-md-block {
+    display: block!important;
+}
+.container--sm {
+    max-width: calc(1296px + 5.6rem);
+}
+.container {
+    padding: 0 2.8rem;
+}
+.pg-account-menu a {
+    color: #a3acb9;
+    padding: 10px 0;
+    margin-right: 30px;
+    display: inline-block;
+}

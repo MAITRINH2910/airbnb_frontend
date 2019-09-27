@@ -1,0 +1,137 @@
+.image {
+    background: url(https://trmhospitality.com/wp-content/uploads/2018/07/DSC_0655.jpg);
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.body {
+    border-radius: 20px!important;
+    background-color: #ffffffcf;
+   
+}
+
+.mb-5, .my-5 {
+    margin-top: 90px!important;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: 10px !important;
+}
+
+.card-signin {
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+    margin-right: 45px;
+}
+
+.card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.card-signin .body {
+    padding: 2rem;
+}
+
+.form-signin {
+    width: 100%;
+}
+
+.form-signin .btn {  
+    border-radius: 5rem;   
+    transition: all 0.2s;
+    margin-left: 120px;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-label-group input {
+    height: auto;
+    border-radius: 2rem;
+    color: black;
+}
+
+#inputEmail.form-control {
+    font-size: 170%;
+    transition: all 0.2s;
+}
+
+#inputPassword.form-control {
+    font-size: 170%;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #798b9c;
+    background-color: #fff0;
+    background-clip: padding-box;
+    border: 1px solid #909499;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-label-group[_ngcontent-c1]>label[_ngcontent-c1] {
+    position: absolute;
+    top: 14px;
+    left: 17px;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+}
+
+button.btn.btn-lg.btn-primary.btn-block.text-uppercase {
+    background: linear-gradient(to right, #33AEFF, #0062E6);
+}
+
+.center .h2, h2 {
+    font-size: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20;
+    display: inline-block;
+    color: white
+}
+
+.center {
+    line-height: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.custom-control-label::after {
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    background-color: #7d829680;
+    border-radius: 5px;
+}
+
+.alert-danger {
+    border-radius: 3px;
+}

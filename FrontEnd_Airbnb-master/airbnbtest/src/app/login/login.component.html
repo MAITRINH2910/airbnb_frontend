@@ -1,0 +1,149 @@
+<div class="image">
+    <div *ngIf="isLoggedIn; else loggedOut">
+    </div>
+    <ng-template #loggedOut>
+        <div class="container ">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card-signin my-5">
+                        <div class="body">
+                            <h5 class="card-title text-center">Đăng nhập</h5>
+                            <form class="form-signin " id="Login" [formGroup]="formLogin" (ngSubmit)="onSubmit()"
+                                novalidate>
+                                <div class="form-label-group">
+                                    <input placeholder="Tài khoản" id="luser" formControlName="username" type="text"
+                                        class="form-control modal-form-input" (keydown)="keyDownAccount($event)" />
+
+                                    <div *ngIf="submitted; else notEmail">
+                                        <div class="alert-danger"
+                                            *ngIf="formLogin.controls.username.errors?.required||formLogin.controls.username.dirty && formLogin.controls.username.invalid ||formLogin.controls.username.touched">
+                                            <div
+                                                *ngIf="formLogin.controls.username.errors?.required; else enter">
+                                                Vui lòng nhập trường này</div>
+                                            <ng-template #enter>
+                                                <div *ngIf="formLogin.controls.username.errors?.pattern">
+                                                    Không được nhập các kí tự đặc biệt</div>
+                                            </ng-template>
+                                       
+                                        </div>
+                                    </div>
+
+                                    <ng-template #notEmail>
+                                        <div class="alert-danger" *ngIf="formLogin.controls.username.dirty && formLogin.controls.username.invalid 
+                        ||formLogin.controls.username.touched">
+                                            <div
+                                                *ngIf="formLogin.controls.username.errors?.required; else enter">
+                                                Vui lòng nhập trường này</div>
+                                            <ng-template #enter>
+                                                <div *ngIf="formLogin.controls.username.errors?.pattern">                                                   Không được nhập các kí tự đặc biệt</div>
+                                            </ng-template>
+                                        
+                                        </div>
+                                    </ng-template>
+                                </div>
+                                <br />
+
+                                <div class="form-label-group">
+                                    <input id="password" formControlName="password" placeholder="Mật khẩu"
+                                        type="password" class="form-control modal-form-input"
+                                        (keydown)="keyDownPassword($event)" style="margin-top: -20px" />
+
+                                    <div *ngIf="submitted; else notPassword">
+                                        <div class="alert-danger" *ngIf="formLogin.controls.password.errors?.required||formLogin.controls.password.dirty
+                         && formLogin.controls.password.invalid
+                         ||formLogin.controls.password.touched">
+                                            <div
+                                                *ngIf="formLogin.controls.password.errors?.required; else enter5 enter6">
+                                                Vui lòng nhập trường này</div>
+                                            <ng-template #enter5>
+                                                <div *ngIf="formLogin.controls.password.errors?.pattern">
+                                                    Không được nhập các kí tự đặc biệt</div>
+                                            </ng-template>
+                                            <!-- <ng-template #enter7 #enter6>
+                                                <div *ngIf="formLogin.controls.password.errors?.pattern">Không được nhập các kí tự đặc biệt </div>
+                                            </ng-template> -->
+                                        </div>
+                                    </div>
+
+                                    <ng-template #notPassword>
+                                        <div class="alert-danger" *ngIf="formLogin.controls.password.dirty && formLogin.controls.password.invalid 
+                        ||formLogin.controls.password.touched">
+                                            <div
+                                                *ngIf="formLogin.controls.password.errors?.required; else enter5 enter6">
+                                                Vui lòng nhập trường này</div>
+                                            <ng-template #enter5>
+                                                <div *ngIf="formLogin.controls.password.errors?.pattern; else enter7">
+                                                    Không được nhập các kí tự đặc biệt</div>
+                                            </ng-template>
+                                            <!-- <ng-template #enter7 #enter6>
+                                                <div *ngIf="formLogin.controls.password.errors?.pattern ">Không được nhập các kí tự đặc biệt </div>
+                                            </ng-template> -->
+                                        </div>
+                                    </ng-template>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked
+                                        (click)="sendStatus()">
+
+                                    <label class="custom-control-label" for="customCheck1">Nhớ mật khẩu</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <p for="customCheck1" style="float: right;"><a href="#">Quên mật khẩu</a></p>
+                                </div>
+                                <div class="form-group">
+                                    <button style="text-align: center;"
+                                        class="btn btn-primary"  [disabled]="loading" >Đăng
+                                        nhập</button><br /><br />
+                                    <!-- <img *ngIf="loading"
+                                        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///
+                                        wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh
+                                        /hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAA
+                                        DMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+d
+                                        IAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsa
+                                        qHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJ
+                                        DMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsA
+                                        AAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/
+                                        IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWU
+                                        Ipz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGcc
+                                        c4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7w
+                                        CRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABA
+                                        AAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAO
+                                        wAAAAAAAAAAAA==" /> -->
+                                    <div *ngIf="submitted && isLoginFailed 
+                                " class="alert alert-danger"  style="margin-top: -12px"> Tài khoản hoặc mật khẩu chưa đúng!
+                                    </div>
+                                </div>
+                                <p style="text-align: center;margin-bottom: -10px; margin-top: -10px;">Tạo tài khoản?<a
+                                        href="#"> Đăng kí</a></p>
+                                <hr class="my-4">
+                                <p style="text-align: center;margin-bottom: 5px; margin-top:-20px">hoặc</p>
+
+                                <div>
+                                    <i class="fab fa-facebook-square" (click)="signInWithFB()"
+                                        style="font-size:50px; color: #3b5998; margin: 0px 100px 0px"></i>
+                                    <svg version="1.1" viewBox="0 0 16 16" class="is-absolute svg-icon svg-fill" (click)="signInWithGoogle()"
+                                        style="width: 43.75px;height: 50px; margin: 10px 10px -5px -60px">
+                                        <g fill="none">
+                                            <path pid="0" fill="#557EBF"
+                                                d="M15.85 8.2c0-.55-.05-1.1-.15-1.65H8.15v3.1h4.3c-.2 1-.75 1.85-1.6 2.4v2h2.6c1.5-1.4 2.4-3.45 2.4-5.85z">
+                                            </path>
+                                            <path pid="1" fill="#36A852"
+                                                d="M8.15 16c2.15 0 3.95-.7 5.3-1.95l-2.6-2c-.7.5-1.65.75-2.7.75-2.1 0-3.85-1.4-4.5-3.3H1v2.05C2.35 14.2 5.05 16 8.15 16z">
+                                            </path>
+                                            <path pid="2" fill="#F9BC15"
+                                                d="M3.7 9.5c-.15-.5-.25-1-.25-1.5s.1-1.05.25-1.5V4.4H1C.45 5.5.15 6.7.15 8c0 1.3.3 2.5.85 3.6l2.7-2.1z">
+                                            </path>
+                                            <path pid="3" fill="#EA4535"
+                                                d="M8.15 3.2c1.15 0 2.25.4 3.05 1.2l2.3-2.3C12.15.8 10.3 0 8.15 0 5.05 0 2.35 1.8 1 4.4l2.7 2.1c.6-1.9 2.4-3.3 4.45-3.3z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

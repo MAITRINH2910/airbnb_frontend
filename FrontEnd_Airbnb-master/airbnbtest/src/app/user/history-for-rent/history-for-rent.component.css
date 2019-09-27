@@ -1,0 +1,32 @@
+.d-none {
+    display: none!important;
+}
+
+.d-md-block {
+    display: block!important;
+}
+
+.pg-account-header {
+    background: #fff;
+    align-items: center;
+    color: #999;
+    position: relative;
+}
+
+.container--sm {
+    max-width: calc(1296px + 2rem);
+}
+
+.pg-account-menu a {
+    color: #a3acb9;
+    padding: 10px 0;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    transition: all .3s;
+}
+

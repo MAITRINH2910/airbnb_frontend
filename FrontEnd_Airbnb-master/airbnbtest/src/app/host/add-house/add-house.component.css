@@ -1,0 +1,38 @@
+.form {
+    margin-right: -15px;
+    margin-left: -15px;
+  
+}
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+}
+.col-md-10 {
+    width: 83.33333333%;
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+.col-md-2 {
+    width: 16.66666667%;
+}
+.color-dranger-bootstrap{
+    color: red;
+}
+.btn-outline-primary{
+    border-radius: 15px;
+    margin-top: 20px!important;
+}
+.btn-primary{
+    margin-top: -40px;
+}
+label.col-md-4{
+    margin: 10px 0px 8px;
+}
+.is-invalid{
+    border-color: red;
+}
+h5{
+    margin-top: 15px
+}

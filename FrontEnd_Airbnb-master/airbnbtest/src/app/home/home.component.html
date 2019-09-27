@@ -1,0 +1,370 @@
+<div class="section" style="margin-top: 100px;">
+    <div class="container container--md">
+        <div id="27">
+            <div class="is-flex jbetween align-end">
+                <div class="title">
+                    <h2 class="extra-bold p--giant"><a href="/vi/homestay/choices/lua-chon-pho-bien-27" class="">Lựa
+                            chọn phổ biến</a></h2>
+                    <p>Thêm trải nghiệm, thêm nhiều niềm vui cùng các chủ nhà của chúng tôi</p>
+                </div>
+            </div>
+            <!--            
+            <div class="room-carousel-wrap">
+                    <div class="slick-initialized slick-slider">
+                        <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button"
+                            aria-disabled="true" style="">Previous</button>
+                        <div class="slick-list draggable">
+                            <div class="slick-track"
+                                style="opacity: 1;width: 3840px;transform: translate3d(0px, 0px, 0px);">
+                                <div *ngFor="let item of houses">
+    
+                                    <div class="slick-slide slick-current slick-active" data-slick-index="0"
+                                        aria-hidden="false" style="width: 256px;">
+                                        <div>
+                                            <div style="width: 100%; display: inline-block;">
+                                                <div class="promo is-relative">
+                                                    <a [routerLink]="['/homepage/house',item.id]"
+                                                        routerLinkActive="router-link-active" class="" target="_blank"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__image">
+                                                            <div class="promo__image-wrap"><img width="270" height="192"
+                                                                    elementtiming="product" class="w--100"
+                                                                    data-src="https://cdn.luxstay.com/rooms/19033/medium/room_19033_97_1547110185.jpg"
+                                                                    src="https://cdn.luxstay.com/rooms/19033/medium/room_19033_97_1547110185.jpg"
+                                                                    lazy="loaded"></div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__content">
+                                                        <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                            {{item.typeHouse}}
+                                                        </div>
+                                                        <div class="is-relative">
+                                                            <a href="/vi/rooms/19033" class="" target="_blank"
+                                                                id="room-item" data-value="19033" tabindex="0">
+                                                                <div class="promo__title extra-bold"
+                                                                    style="-webkit-box-orient: vertical;">
+                                                                    {{item.title}}
+                                                                </div>
+                                                            </a>
+                                                            <div class="promo__description my--6 text-lowercase">8 khách ·
+                                                                {{item.bedRoomNumber}}
+                                                                Phòng ngủ · {{item.bathRoomNumber}} phòng tắm</div>
+                                                            <div class="promo__price mb--6">
+                                                                <span
+                                                                    class="extra-bold"><span>{{item.pricePerNight}}</span>/đêm</span>
+                                                            </div>
+                                                            <div class="promo__add mb--6 promo__add mb--6">{{item.address}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div> -->
+
+            <div class="slick-initialized slick-slider">
+                <div class="nav-btn prev-slide slick-arrow" (click)="slickModal.slickPrev()"></div>
+
+                <div class="slick-list draggable">
+                    <div class="slick-track">
+                        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig"
+                            (init)="slickInit($event)" (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+                            <div ngxSlickItem *ngFor="let slide of slides" style="width: 300px">
+                                <div *ngFor="let item of slide">
+                                    <div class="promo is-relative">
+                                        <a [routerLink]="['/homepage/house',item.id]"
+                                            routerLinkActive="router-link-active">
+                                            <div class="promo__image">
+                                                <div class="promo__image-wrap">
+                                                    <!-- <img src="{{ item.img }}" alt="" width="100%"> -->
+                                                    <img width="270" height="192" elementtiming="product" class="w--100"
+                                                        data-src="https://cdn.luxstay.com/rooms/20465/medium/room_20465_14_1563125198.png"
+                                                        src="https://cdn.luxstay.com/rooms/20465/medium/room_20465_14_1563125198.png"
+                                                        lazy="loaded">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="promo__content">
+                                            <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                {{item.typeHouse}}
+                                            </div>
+                                            <div class="is-relative">
+                                                <a href="/vi/rooms/19033" id="room-item">
+                                                    <div class="promo__title extra-bold"
+                                                        style="-webkit-box-orient: vertical;">
+                                                        {{item.title}}
+                                                    </div>
+                                                </a>
+                                                <div class="promo__description my--6 text-lowercase">8
+                                                    khách ·
+                                                    {{item.bedRoomNumber}}
+                                                    Phòng ngủ · {{item.bathRoomNumber}} phòng tắm</div>
+                                                <div class="promo__price mb--6">
+                                                    <span
+                                                        class="extra-bold"><span>{{item.pricePerNight}}</span>/đêm</span>
+                                                </div>
+                                                <div class="promo__add mb--6 promo__add mb--6">
+                                                    {{item.address}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div class="nav-btn next-slide slick-arrow" (click)="slickModal.slickNext()"></div>
+            </div>
+            <!-- <button (click)="addSlide()">Add</button>
+                <button (click)="removeSlide()">Remove</button>
+                <button (click)="slickModal.slickNext()">slickNext</button>
+                <button (click)="slickModal.slickPrev()">slickPrev</button> -->
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="section">
+    <div class="container container--md">
+        <div id="28">
+            <div class="is-flex jbetween align-end">
+                <div class="title mb--18">
+                    <h2 class="extra-bold p--giant"><a href="/vi/homestay/choices/lua-chon-pho-bien-27" class="">Nha
+                            Trang ơi, chơi tới bến!</a></h2>
+                    <p>Đường thì dài, xăng thì rẻ, ta còn trẻ, ngồi một chỗ mãi làm chi? Săn ngay homestay Nha Trang ƯU
+                        ĐÃI KHỦNG vào khung giờ vàng 12-13h ngày 23/08/2019.</p>
+                </div>
+            </div>
+
+            <div class="room-carousel-wrap">
+                <div class="slick-initialized slick-slider">
+                    <div class="nav-btn prev-slide slick-arrow" aria-disabled="true" style=""
+                        (click)="slickModal.slickPrev()"></div>
+
+                    <div class="slick-list draggable">
+                        <div class="slick-track"
+                            style="opacity: 1;width: 3840px;transform: translate3d(0px, 0px, 0px);">
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                                style="width: 256px;">
+                                <div>
+                                    <div style="width: 100%; display: inline-block;">
+                                        <div class="promo is-relative">
+                                            <a href="/vi/rooms/19033" class="" target="_blank" data-value="19033"
+                                                tabindex="0">
+                                                <div class="promo__image">
+                                                    <div class="promo__image-wrap"><img width="270" height="192"
+                                                            elementtiming="product" class="w--100"
+                                                            data-src="https://cdn.luxstay.com/rooms/20465/medium/room_20465_14_1563125198.png"
+                                                            src="https://cdn.luxstay.com/rooms/20465/medium/room_20465_14_1563125198.png"
+                                                            lazy="loaded"></div>
+                                                </div>
+                                            </a>
+                                            <div class="promo__content">
+                                                <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                    Căn hộ chung cư
+                                                </div>
+                                                <div class="is-relative">
+                                                    <a href="/vi/rooms/19033" class="" target="_blank" id="room-item"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__title extra-bold"
+                                                            style="-webkit-box-orient: vertical;">
+                                                            Premium Luxury 3 Bedrooms Penthouse w Amazing City View
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__description my--6 text-lowercase">8 khách · 3
+                                                        Phòng ngủ · 2 phòng tắm</div>
+                                                    <div class="promo__price mb--6">
+                                                        <span class="extra-bold"><span>2,500,000₫</span>/đêm</span>
+                                                    </div>
+                                                    <div class="promo__add mb--6 promo__add mb--6">Bình Thạnh, Hồ Chí
+                                                        Minh</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                                style="width: 256px;">
+                                <div>
+                                    <div style="width: 100%; display: inline-block;">
+                                        <div class="promo is-relative">
+                                            <a href="/vi/rooms/19033" class="" target="_blank" data-value="19033"
+                                                tabindex="0">
+                                                <div class="promo__image">
+                                                    <div class="promo__image-wrap"><img width="270" height="192"
+                                                            elementtiming="product" class="w--100"
+                                                            data-src="https://cdn.luxstay.com/rooms/20165/medium/room_20165_32_1557367320.jpg"
+                                                            src="https://cdn.luxstay.com/rooms/20165/medium/room_20165_32_1557367320.jpg"
+                                                            lazy="loaded"></div>
+                                                </div>
+                                            </a>
+                                            <div class="promo__content">
+                                                <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                    Căn hộ chung cư
+                                                </div>
+                                                <div class="is-relative">
+                                                    <a href="/vi/rooms/19033" class="" target="_blank" id="room-item"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__title extra-bold"
+                                                            style="-webkit-box-orient: vertical;">
+                                                            Luxury 3 Bedrooms Penthouse w Amazing City View
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__description my--6 text-lowercase">8 khách · 3
+                                                        Phòng ngủ · 2 phòng tắm</div>
+                                                    <div class="promo__price mb--6">
+                                                        <span class="extra-bold"><span>2,500,000₫</span>/đêm</span>
+                                                    </div>
+                                                    <div class="promo__add mb--6 promo__add mb--6">Hồ Chí
+                                                        Minh</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                                style="width: 256px;">
+                                <div>
+                                    <div style="width: 100%; display: inline-block;">
+                                        <div class="promo is-relative">
+                                            <a href="/vi/rooms/19033" class="" target="_blank" data-value="19033"
+                                                tabindex="0">
+                                                <div class="promo__image">
+                                                    <div class="promo__image-wrap"><img width="270" height="192"
+                                                            elementtiming="product" class="w--100"
+                                                            data-src="https://cdn.luxstay.com/rooms/12455/medium/1525428409_received_1885174438167821-01.jpg"
+                                                            src="https://cdn.luxstay.com/rooms/12455/medium/1525428409_received_1885174438167821-01.jpg"
+                                                            lazy="loaded"></div>
+                                                </div>
+                                            </a>
+                                            <div class="promo__content">
+                                                <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                    Căn hộ chung cư
+                                                </div>
+                                                <div class="is-relative">
+                                                    <a href="/vi/rooms/19033" class="" target="_blank" id="room-item"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__title extra-bold"
+                                                            style="-webkit-box-orient: vertical;">
+                                                            Premium Luxury 3 Bedrooms Penthouse w Amazing City View
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__description my--6 text-lowercase">8 khách · 3
+                                                        Phòng ngủ · 2 phòng tắm</div>
+                                                    <div class="promo__price mb--6">
+                                                        <span class="extra-bold"><span>2,500,000₫</span>/đêm</span>
+                                                    </div>
+                                                    <div class="promo__add mb--6 promo__add mb--6">Bình Thạnh, Hồ Chí
+                                                        Minh</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                                style="width: 256px;">
+                                <div>
+                                    <div style="width: 100%; display: inline-block;">
+                                        <div class="promo is-relative">
+                                            <a href="/vi/rooms/19033" class="" target="_blank" data-value="19033"
+                                                tabindex="0">
+                                                <div class="promo__image">
+                                                    <div class="promo__image-wrap"><img width="270" height="192"
+                                                            elementtiming="product" class="w--100"
+                                                            data-src="https://cdn.luxstay.com/rooms/13489/medium/1531120224_AUBE0293-min.jpg"
+                                                            src="https://cdn.luxstay.com/rooms/13489/medium/1531120224_AUBE0293-min.jpg"
+                                                            lazy="loaded"></div>
+                                                </div>
+                                            </a>
+                                            <div class="promo__content">
+                                                <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                    Căn hộ chung cư
+
+                                                </div>
+                                                <div class="is-relative">
+                                                    <a href="/vi/rooms/19033" class="" target="_blank" id="room-item"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__title extra-bold"
+                                                            style="-webkit-box-orient: vertical;">
+                                                            Premium Luxury 3 Bedrooms Penthouse w Amazing City View
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__description my--6 text-lowercase">8 khách · 3
+                                                        Phòng ngủ · 2 phòng tắm</div>
+                                                    <div class="promo__price mb--6">
+                                                        <span class="extra-bold"><span>2,500,000₫</span>/đêm</span>
+                                                    </div>
+                                                    <div class="promo__add mb--6 promo__add mb--6">Bình Thạnh, Hồ Chí
+                                                        Minh</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                                style="width: 256px;">
+                                <div>
+                                    <div style="width: 100%; display: inline-block;">
+                                        <div class="promo is-relative">
+                                            <a href="/vi/rooms/19033" class="" target="_blank" data-value="19033"
+                                                tabindex="0">
+                                                <div class="promo__image">
+                                                    <div class="promo__image-wrap"><img width="270" height="192"
+                                                            elementtiming="product" class="w--100"
+                                                            data-src="https://cdn.luxstay.com/rooms/19033/medium/room_19033_97_1547110185.jpg"
+                                                            src="https://cdn.luxstay.com/rooms/19033/medium/room_19033_97_1547110185.jpg"
+                                                            lazy="loaded"></div>
+                                                </div>
+                                            </a>
+                                            <div class="promo__content">
+                                                <div class="promo__type bold" style="-webkit-box-orient: vertical;">
+                                                    Căn hộ chung cư
+                                                </div>
+                                                <div class="is-relative">
+                                                    <a href="/vi/rooms/19033" class="" target="_blank" id="room-item"
+                                                        data-value="19033" tabindex="0">
+                                                        <div class="promo__title extra-bold"
+                                                            style="-webkit-box-orient: vertical;">
+                                                            Premium Luxury 3 Bedrooms Penthouse w Amazing City View
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo__description my--6 text-lowercase">8 khách · 3
+                                                        Phòng ngủ · 2 phòng tắm</div>
+                                                    <div class="promo__price mb--6">
+                                                        <span class="extra-bold"><span>2,500,000₫</span>/đêm</span>
+                                                    </div>
+                                                    <div class="promo__add mb--6 promo__add mb--6">Bình Thạnh, Hồ Chí
+                                                        Minh</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="nav-btn next-slide slick-arrow" (click)="slickModal.slickNext()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,429 @@
+<div>
+    <a [routerLink]="['/host/property/preview']" routerLinkActive="router-link-active" class="btn btn-outline-primary"
+        style="float: right">Xem trước</a>
+    <br>
+    <div class="basic-info">
+        <h2 class="header"><b>Bắt đầu tạo dịch vụ lưu trú</b></h2>
+        <hr>
+    </div>
+
+    <div class="image-slide"></div><br>
+
+    <form class="form-signin " id="Login" [formGroup]="formAddHouse" (ngSubmit)="onSubmit()">
+        <div class="basic-info">
+            <button type="submit" class="btn btn-primary" style="float: right">Gởi chỗ ở của bạn</button>
+
+            <h5>Thông tin chung</h5>
+            <hr>
+            <label for="room_type" style="margin-top: 10px" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                Tên nhà <span class="color-dranger-bootstrap">*</span></label>
+            <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                <input style="margin-bottom: 5px; margin-top: 5px" id="title" formControlName="title" type="text"
+                    class="form-control modal-form-input" />
+
+                <div *ngIf="submitted; else nottitle">
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.title.errors?.required||formAddHouse.controls.title.dirty
+                           && formAddHouse.controls.title.invalid
+                           ||formAddHouse.controls.title.touched">
+                        <div *ngIf="formAddHouse.controls.title.errors?.required; else enter5">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.title.hasError('whitespace')">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <ng-template #nottitle>
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.title.dirty && formAddHouse.controls.title.invalid 
+                          ||formAddHouse.controls.title.touched">
+                        <div *ngIf="formAddHouse.controls.title.errors?.required; else enter5">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.title.hasError('whitespace')">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </ng-template>
+            </div>
+            <br><br>
+            <label for="room_type" style="margin-top: 10px" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                Mô tả </label>
+            <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                <textarea rows="4" cols="50" style="margin-bottom: 5px; margin-top: 5px" class="form-control"
+                    id="moTaChung" formControlName="description"></textarea>
+            </div>
+            <br><br><br>
+        </div>
+
+        <div class="detail-info"><br><br>
+            <h5>Thông tin chi tiết</h5>
+            <hr>
+            <label for="room_type" style="margin-top: 10px" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                Địa chỉ <span class="color-dranger-bootstrap">*</span></label>
+            <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                <input style="margin-bottom: 5px; margin-top: 5px" type="text" class="form-control" id="diaChi"
+                    formControlName="address" required />
+
+                <div *ngIf="submitted; else address">
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.address.errors?.required||formAddHouse.controls.address.dirty
+                               && formAddHouse.controls.address.invalid
+                               ||formAddHouse.controls.address.touched">
+                        <div *ngIf="formAddHouse.controls.address.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.address.hasError('whitespace'); else enter7">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <ng-template #address>
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.address.dirty && formAddHouse.controls.address.invalid 
+                              ||formAddHouse.controls.address.touched">
+                        <div *ngIf="formAddHouse.controls.address.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.address.hasError('whitespace'); else enter7">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </ng-template>
+            </div>
+            <br><br>
+
+            <label for="property_type" style="margin-top: 10px"
+                class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                Loại chỗ ở
+                <span class="color-dranger-bootstrap">*</span></label>
+            <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                <select style="margin-bottom: 5px; margin-top: 5px" name="property_type" id="property_type"
+                    class="form-control" aria-required="true" aria-invalid="false" formControlName="typeHouse">
+                    <option>Nhà riêng</option>
+                    <option>Căn hộ</option>
+                </select> <span class="help is-danger" style="display: none;"></span>
+
+                <div *ngIf="submitted; else nottypeHouse">
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.typeHouse.errors?.required||formAddHouse.controls.title.dirty
+                               && formAddHouse.controls.typeHouse.invalid
+                               ||formAddHouse.controls.typeHouse.touched">
+                        <div *ngIf="formAddHouse.controls.typeHouse.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.typeHouse.hasError('whitespace')">Cần điền
+                                vào trường này!</div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <ng-template #nottypeHouse>
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.typeHouse.dirty && formAddHouse.controls.typeHouse.invalid 
+                              ||formAddHouse.controls.typeHouse.touched">
+                        <div *ngIf="formAddHouse.controls.typeHouse.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.typeHouse.hasError('whitespace')">Cần điền
+                                vào trường này!</div>
+                        </ng-template>
+                    </div>
+                </ng-template>
+
+            </div>
+            <br><br>
+
+            <label for="room_type" style="margin-top: 10px" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                Loại phòng<span class="color-dranger-bootstrap">*</span></label>
+            <div class="col-xs-8 col-sm-9 col-md-10 full-xs"><select style="margin-bottom: 5px; margin-top: 5px"
+                    id="room_type" name="room_type" class="form-control" aria-required="true" aria-invalid="false"
+                    formControlName="typeRoom">
+                    <option>Nguyên căn</option>
+                    <option>Phòng riêng</option>
+                </select> <span class="help is-danger" style="display: none;"></span>
+
+                <div *ngIf="submitted; else nottypeRoom">
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.typeRoom.errors?.required||formAddHouse.controls.typeRoom.dirty
+                                   && formAddHouse.controls.typeRoom.invalid
+                                   ||formAddHouse.controls.typeRoom.touched">
+                        <div *ngIf="formAddHouse.controls.typeRoom.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.typeRoom.hasError('whitespace')">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <ng-template #nottypeRoom>
+                    <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.typeRoom.dirty && formAddHouse.controls.typeRoom.invalid 
+                                  ||formAddHouse.controls.typeRoom.touched">
+                        <div *ngIf="formAddHouse.controls.typeRoom.errors?.required; else enter5 enter6">Cần điền vào
+                            trường này!</div>
+                        <ng-template #enter5>
+                            <div *ngIf="formAddHouse.controls.typeRoom.hasError('whitespace')">Cần điền vào
+                                trường này!</div>
+                        </ng-template>
+                    </div>
+                </ng-template>
+
+            </div>
+            <br><br>
+
+            <div class="row col-xs-4 col-sm-3 col-md-12 full-xs control-label ">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="room_type" style="margin-top: 10px !important" class="col-md-4"
+                        style="padding-left: 0px !important">
+                        Số phòng ngủ<span class="color-dranger-bootstrap">*</span></label>
+                    <div class="col-md-8">
+                        <input style="margin-bottom: 5px; margin-top: 5px" type="number" class="form-control"
+                            id="giaTien" formControlName="bedRoomNumber" required />
+
+                        <div *ngIf="submitted; else notbedRoomNumber ">
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.bedRoomNumber.errors?.required||formAddHouse.controls.bedRoomNumber.dirty
+                                   && formAddHouse.controls.bedRoomNumber.invalid
+                                   ||formAddHouse.controls.bedRoomNumber.touched">
+                                <div *ngIf="formAddHouse.controls.bedRoomNumber.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.bedRoomNumber.errors?.pattern">Số phòng phải lớn
+                                        hơn
+                                        hoặc
+                                        bằng 1
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <ng-template #notbedRoomNumber>
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.bedRoomNumber.dirty && formAddHouse.controls.bedRoomNumber.invalid 
+                                  ||formAddHouse.controls.bedRoomNumber.touched">
+                                <div *ngIf="formAddHouse.controls.bedRoomNumber.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.bedRoomNumber.errors?.pattern ">Số phòng phải lớn
+                                        hơn
+                                        hoặc
+                                        bằng 1
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="room_type" style="margin-top: 20px" class="col-md-4"
+                        style="padding-right: 10px !important">
+                        Số phòng tắm<span class="color-dranger-bootstrap">*</span></label>
+                    <div class="col-md-8"> <input style="margin-bottom: 5px; margin-top: 5px; width: 114%" type="number"
+                            class="form-control" id="giaTien" formControlName="bathRoomNumber" required />
+
+                        <div *ngIf="submitted; else notbathRoomNumber">
+                            <div style="width: 114%; color: red;font-size: 14px" *ngIf="formAddHouse.controls.bathRoomNumber.errors?.required||formAddHouse.controls.bathRoomNumber.dirty
+                                               && formAddHouse.controls.bathRoomNumber.invalid
+                                               ||formAddHouse.controls.bathRoomNumber.touched">
+                                <div *ngIf="formAddHouse.controls.bathRoomNumber.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.bathRoomNumber.errors?.pattern">Số phòng phải lớn
+                                        hơn
+                                        hoặc
+                                        bằng 1
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <ng-template #notbathRoomNumber>
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.bathRoomNumber.dirty && formAddHouse.controls.bathRoomNumber.invalid 
+                                              ||formAddHouse.controls.bathRoomNumber.touched">
+                                <div *ngIf="formAddHouse.controls.bathRoomNumber.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.bathRoomNumber.errors?.pattern ">Số phòng phải lớn
+                                        hơn
+                                        hoặc bằng 1
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="row col-xs-4 col-sm-3 col-md-12 full-xs control-label ">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="room_type" style="margin-top: 10px !important" class="col-md-4"
+                        style="padding-left: 0px !important">
+                        Giá / Đêm<span class="color-dranger-bootstrap">*</span></label>
+                    <div class="col-md-8">
+                        <input style="margin-bottom: 5px; margin-top: 5px" type="number" class="form-control"
+                            id="giaTien" formControlName="pricePerNight" required />
+
+                        <div *ngIf="submitted; else notpricePerNight ">
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.pricePerNight.errors?.required||formAddHouse.controls.pricePerNight.dirty
+                                       && formAddHouse.controls.pricePerNight.invalid
+                                       ||formAddHouse.controls.pricePerNight.touched">
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern">Giá tiền ít nhất
+                                        100.000VND
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <ng-template #notpricePerNight>
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.pricePerNight.dirty && formAddHouse.controls.bedRoomNumber.invalid 
+                                      ||formAddHouse.controls.pricePerNight.touched">
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern ">Giá tiền ít nhất
+                                        100.000VND
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="room_type" style="margin-top: 20px" class="col-md-4"
+                        style="padding-right: 10px !important">
+                        Giá / Tháng<span class="color-dranger-bootstrap">*</span></label>
+                    <div class="col-md-8"> <input style="margin-bottom: 5px; margin-top: 5px; width: 114%" type="number"
+                            class="form-control" id="giaTien" formControlName="pricePerMonth" required />
+
+                        <div *ngIf="submitted; else notpricePerMonth">
+                            <div style="width: 114%; color: red;font-size: 14px" *ngIf="formAddHouse.controls.pricePerMonth.errors?.required||formAddHouse.controls.pricePerMonth.dirty
+                                                   && formAddHouse.controls.pricePerMonth.invalid
+                                                   ||formAddHouse.controls.pricePerMonth.touched">
+                                <div *ngIf="formAddHouse.controls.pricePerMonth.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.pricePerMonth.errors?.pattern">Giá tiền ít nhất
+                                        100.000VND
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <ng-template #notpricePerMonth>
+                            <div style="color: red; font-size: 14px" *ngIf="formAddHouse.controls.pricePerMonth.dirty && formAddHouse.controls.pricePerMonth.invalid 
+                                                  ||formAddHouse.controls.pricePerMonth.touched">
+                                <div *ngIf="formAddHouse.controls.pricePerMonth.errors?.required; else enter6">
+                                    Cần điền vào trường này!</div>
+                                <ng-template #enter6>
+                                    <div *ngIf="formAddHouse.controls.pricePerMonth.errors?.pattern ">Giá tiền ít nhất
+                                        100.000VND
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+
+            <!-- 
+                <label for="room_type" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                    Giá/đêm<span class="color-dranger-bootstrap">*</span></label>
+                <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                    <input style="margin-bottom: 5px; margin-top: 5px;width: 35%" type="number" class="form-control"
+                        id="giaTien" formControlName="pricePerNight" />
+
+                    <div *ngIf="submitted; else pricePerNight">
+                        <div class="alert-danger" style="width: 35%" *ngIf="formAddHouse.controls.pricePerNight.errors?.required||formAddHouse.controls.pricePerNight.dirty
+                                   && formAddHouse.controls.pricePerNight.invalid
+                                   ||formAddHouse.controls.pricePerNight.touched">
+                            <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else pricePerNight5">
+                                Cần điền vào trường này!</div>
+
+                            <ng-template #pricePerNight>
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern">Giá tiền ít nhất
+                                    50000VND
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <ng-template #pricePerNight>
+                        <div class="alert-danger" style="width: 35%" *ngIf="formAddHouse.controls.pricePerNight.dirty && formAddHouse.controls.pricePerNight.invalid 
+                                  ||formAddHouse.controls.pricePerNight.touched">
+                            <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else pricePerNight ">
+                                Cần điền vào trường này!</div>
+
+                            <ng-template #pricePerNight>
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern ">Giá tiền ít nhất
+                                    100.000VND
+                                </div>
+                            </ng-template>
+                        </div>
+                    </ng-template>
+
+                </div>
+                <br><br>
+                <label for="room_type" class="col-xs-4 col-sm-3 col-md-2 full-xs control-label">
+                    Giá/tháng<span class="color-dranger-bootstrap">*</span></label>
+                <div class="col-xs-8 col-sm-9 col-md-10 full-xs">
+                    <input style="margin-bottom: 5px; margin-top: 5px;width: 35%" type="number" class="form-control"
+                        id="giaTien" formControlName="pricePerNight" />
+
+                    <div *ngIf="submitted; else pricePerNight">
+                        <div class="alert-danger" *ngIf="formAddHouse.controls.pricePerNight.errors?.required||formAddHouse.controls.pricePerNight.dirty
+                                       && formAddHouse.controls.pricePerNight.invalid
+                                       ||formAddHouse.controls.pricePerNight.touched">
+                            <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else pricePerNight5">
+                                Cần điền vào trường này!</div>
+
+                            <ng-template #pricePerNight>
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern">Giá tiền ít nhất
+                                    50000VND
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <ng-template #pricePerNight>
+                        <div class="alert-danger" *ngIf="formAddHouse.controls.pricePerNight.dirty && formAddHouse.controls.pricePerNight.invalid 
+                                      ||formAddHouse.controls.pricePerNight.touched">
+                            <div *ngIf="formAddHouse.controls.pricePerNight.errors?.required; else pricePerNight ">
+                                Cần điền vào trường này!</div>
+
+                            <ng-template #pricePerNight>
+                                <div *ngIf="formAddHouse.controls.pricePerNight.errors?.pattern ">Giá tiền ít nhất
+                                    100.000VND
+                                </div>
+                            </ng-template>
+                        </div>
+                    </ng-template>
+
+                </div>
+                <br><br> -->
+
+
+        </div>
+        <br><br><br>
+        <!-- <h5>Tiện ích</h5>
+        <hr>
+        <label formArrayName="utilities" *ngFor="let order of formAddHouse.controls.utilities.controls; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{utilities[i].name}}
+              </label>
+        <br><br><br> -->
+        <h5>Hình ảnh</h5>
+        <hr>
+        <div class="image">
+            <button class="btn btn-primary" style="margin-top: 0px;float: right;">Thêm ảnh</button>
+        </div>
+        <div>
+
+            <br><br><br><br>
+            <hr>
+        </div>
+    </form>
+</div>

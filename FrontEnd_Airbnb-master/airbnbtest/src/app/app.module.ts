@@ -31,6 +31,8 @@ import { ChangePasswordComponent } from './user/change-password/change-password.
 import { HistoryForRentComponent } from './user/history-for-rent/history-for-rent.component';
 import { HistoryRentComponent } from './user/history-rent/history-rent.component';
 import { ResultViewComponent } from './user/result-view/result-view.component';
+import { HomeEstayComponent } from './Estay/home-estay/home-estay.component';
+import { FilterPageComponent } from './Estay/filter-page/filter-page.component';
 
 
 const config = new AuthServiceConfig([
@@ -69,6 +71,8 @@ export function provideConfig() {
     HistoryForRentComponent,
     HistoryRentComponent,
     ResultViewComponent,
+    HomeEstayComponent,
+    FilterPageComponent
   ],
   imports: [
     BrowserModule,

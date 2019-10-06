@@ -32,6 +32,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/slick-carousel/slick/slick.min.js"
+
             ]
           },
           "configurations": {
@@ -96,7 +97,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "styles.css"
             ],
             "scripts": []
           }
